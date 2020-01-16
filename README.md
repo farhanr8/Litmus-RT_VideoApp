@@ -40,23 +40,23 @@ Now to make this application a real-time task, the skeleton code provided a job 
 
 This section will be discussing the tools used to evaluate the real time task. Revisiting the code, the skeleton of the _base\_task.c_ file defined some constant values as shown in Figure 1. These values determine how the jobs are released by assigning the period, deadline, and execution cost of a job. In the later figures, we'll see this job being executed by different scheduling algorithms, namely GSN-EDF and P-FP. Litmus-RT provides a wider range of scheduling algorithms but for this paper we'll only focus on those two.
 
-![alt text](https://github.com/farhanr8/Litmus-RT_VideoApp/images/figure1.png "Figure 1")
+![alt text](https://github.com/farhanr8/Litmus-RT_VideoApp/blob/master/images/Figure1.png "Figure 1")
 Figure 1. Real-Time Constraints for Task
 
 To evaluate the real-time aspect of the video processing application, the feather-trace interface of Litmus-RT is used; specifically, the _ST_ visualizing tool. In order to create a trace, the first thing I needed to do was run the _st-trace-schedule_ command and then execute the video processing application. When the video application finishes playing its video, I stop the trace program and it generates a binary file. This new file can then be used to create a time diagram and also look at job statistics. Executing _st-draw_ creates a pdf with the schedules plotted on a time diagram and part of that is shown in Figure 2 and Figure 3.
 
-![alt text](https://github.com/farhanr8/Litmus-RT_VideoApp/images/figure2.png "Figure 2")
+![alt text](https://github.com/farhanr8/Litmus-RT_VideoApp/blob/master/images/Figure2.png "Figure 2")
 Figure 2. GSN-EDF Trace
 
-![alt text](https://github.com/farhanr8/Litmus-RT_VideoApp/images/figure3.png "Figure 3")
+![alt text](https://github.com/farhanr8/Litmus-RT_VideoApp/blob/master/images/Figure3.png "Figure 3")
 Figure 3. P-FP Trace
 
 To gain more insights on the jobs being executed, feather-trace also provides the command _st-job-stats_. As shown in Figure 4 and Figure 5, it includes the period, response time, lateness and tardiness of the job; it also shows whether or not its deadline was missed, or if the job was forced. ACET stands for the Average Case Execution Time of a job. The number of preemptions and migrations the job caused is also shown.
 
-![alt text](https://github.com/farhanr8/Litmus-RT_VideoApp/images/figure4.png "Figure 4")
+![alt text](https://github.com/farhanr8/Litmus-RT_VideoApp/blob/master/images/Figure4.png "Figure 4")
 Figure 4. GSN-EDF Statistics
 
-![alt text](https://github.com/farhanr8/Litmus-RT_VideoApp/images/figure5.png "Figure 5")
+![alt text](https://github.com/farhanr8/Litmus-RT_VideoApp/blob/master/images/Figure5.png "Figure 5")
 Figure 5. P-FP Statistics
 
 
